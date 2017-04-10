@@ -25,7 +25,7 @@ class FedWriter:  # Creates and manage writing of files in Federal Reserve commo
         return returnvalue
 
     def add(self, indate, inmeasure, incounty):
-        measuredate = str(indate.year.__str__())+'-'+self.leadingzero(indate.month.__int__())+'-'+self.leadingzero(indate.day.__int__())
+        measuredate = str(indate)
         measure = Measure()
         measure.setdate(indate)
         measure.setvalue(inmeasure)
@@ -48,14 +48,16 @@ class FedWriter:  # Creates and manage writing of files in Federal Reserve commo
 
     def output_msr_file(self):
         datelist=[]
-        countylist = []
+        countylist =[]
         for rec in self.measureList:
             if str(rec.date) not in datelist:
                 datelist.append(str(rec.date))
-        datelist.sort()
+
         for rec in self.measureList:
             if str(rec.county) not in countylist:
                 countylist.append(str(rec.county))
+        for rec in countylist:
+            print(rec)
         datelist.sort()
         countylist.sort()
         firstline = "COUNTY"

@@ -30,7 +30,7 @@ class VoteCounty:  # Single Vote Entity
 
     # Sets participation
     def calcparticipation(self):
-        self.participation = float(self.votes) / float(self.population)
+            self.participation = float(self.votes)
 
     # sets date in object input must be a date
     def setdate(self, indate):
@@ -60,7 +60,7 @@ def getvotedate(inyear): # static method returns dat of vote from year
 
 # ['link','zipfile','folder','dbf']]
 filelist = [
-    ['2014_EAVS_DBF_Files1.zip', '2014_EAVS_DBF_Files1.zip', '2014_EAVS_DBF_Files1', 'EAVS_Section_F-Part1.dbf','2014'],
-    ['DBF Files.zip', 'DBF Files.zip', 'DBF Files', 'DBF Files\\Section F_F1-F3.dbf','2012'],
-    ['Sections C to F_DBF.zip', 'Final EAVS Data - Sections C to F_DBF.zip', 'Final EAVS Data - Sections C to F_DBF', 'EAVS Section F_part1.dbf', '2010'],
+    ['2014_EAVS_DBF_Files1.zip', '2014_EAVS_DBF_Files1.zip', '2014_EAVS_DBF_Files1', 'EAVS_Section_F-Part1.dbf','2014', 'EAVS_Section_A-Part1.dbf'],
+    ['DBF Files.zip', 'DBF Files.zip', 'DBF Files', 'DBF Files\\Section F_F1-F3.dbf','2012', ''],
+    ['Sections C to F_DBF.zip', 'Final EAVS Data - Sections C to F_DBF.zip', 'Final EAVS Data - Sections C to F_DBF', 'EAVS Section F_part1.dbf', '2010', ''],
     ]
