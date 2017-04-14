@@ -56,8 +56,6 @@ class FedWriter:  # Creates and manage writing of files in Federal Reserve commo
         for rec in self.measureList:
             if str(rec.county) not in countylist:
                 countylist.append(str(rec.county))
-        for rec in countylist:
-            print(rec)
         datelist.sort()
         countylist.sort()
         firstline = "COUNTY"
