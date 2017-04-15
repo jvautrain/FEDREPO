@@ -12,9 +12,8 @@ import xlrd
 
 ########################
 # Get arguments
-inlocation = sys.argv[3]
-inmeasure = sys.argv[2]
-inyear = sys.argv[1]
+inlocation = sys.argv[2]
+inmeasure = sys.argv[1]
 countyvotes = []
 
 #########################################
