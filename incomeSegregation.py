@@ -40,10 +40,9 @@ profile.set_preference("plugin.disable_full_page_plugin_for_types", "application
 driver = webdriver.Firefox(profile)
 driver.get(url)
 print("open URL")
-if year!= "2015":
-    print('Waiting 10')
-    time.sleep(5)
-    driver.find_element_by_partial_link_text(year).click()
+print('Waiting 10')
+time.sleep(5)
+driver.find_element_by_partial_link_text(year).click()
     print('Clicked year:'+year)
 clickfail=True
 while clickfail:
