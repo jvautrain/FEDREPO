@@ -12,9 +12,8 @@ import CostIncCounty
 ########################
 # Get arguments
 
-inLocation = sys.argv[3]
-inMeasure = sys.argv[2]
-inYear = sys.argv[1]
+inLocation = sys.argv[2]
+inMeasure = sys.argv[1]
 
 measurelist = []
 
