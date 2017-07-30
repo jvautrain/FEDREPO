@@ -20,40 +20,35 @@ measurelist = []
 
 print(inLocation)
 print(inMeasure)
-print(inYear)
 
-################
-##Get RPP by MSA
+###############
+# Get RPP by MSA
 print("Get RPP by MSA")
 CostIncCounty.get_msa_rpp(inLocation)
 print("Get RPP by MSA Done")
 
 ###############
-## READ RPP msa
+# READ RPP msa
 print("MSA RPP READ")
 MSA_RPP_List = CostIncCounty.read_downloadcsv(inLocation,2,"1")
-print(MSA_RPP_List)
 print('MSA RPP READ END')
 
 #############
 #Get Msa List
 print("Start MSA to County List")
 MSA_to_FIPS=CostIncCounty.get_msa_to_FIPS(inLocation)
-print(MSA_to_FIPS)
 print("MSA to County List Done")
 
-#####################
-#Get State RPP Data
+# ####################
+# Get State RPP Data
 print("Get State level RPP")
 CostIncCounty.get_state_rpp(inLocation)
 print("Done with state RPP list")
 
-
-# ####################
-## READ STATE RPP LIST
+####################
+# READ STATE RPP LIST
 print("READ STATE RPP LIST")
-Stata_RPP_List = CostIncCounty.read_downloadcsv(inLocation,2,"1")
-print(Stata_RPP_List)
+State_RPP_List = CostIncCounty.read_downloadcsv(inLocation,2,"1")
 print("READ STATE RPP LIST END")
 
 ###############
@@ -62,37 +57,38 @@ print("Get MSA avg income")
 CostIncCounty.get_msa_income(inLocation)
 print("Get MSA avg income Done")
 
-# ################
-## READ MSA INCOME
+#################
+# READ MSA INCOME
 print("READ MSA INCOME")
 MSA_Income_List = CostIncCounty.read_downloadcsv(inLocation,2,"2")
 print("READ MSA INCOME Done")
-print(MSA_Income_List)
 
 ##################
-#Get state income
+# Get state income
 print("Get State avg income")
 CostIncCounty.get_state_income(inLocation)
 print("Done with Get State avg income")
 
 # ###################
-## READ STATE INCOME
+# READ STATE INCOME
 print("READ STATE INCOME")
 State_Income_List=CostIncCounty.read_downloadcsv(inLocation,2,"2")
+# print(MSA_RPP_List)
+# print(MSA_Income_List)
+# print(MSA_to_FIPS)
+# print(State_RPP_List)
 print(State_Income_List)
-print("READ STATE INCOME DONE")
-
 
 recList=[]
-yearList=["2008", "2009", "2010", "2011", "2012", "2013", "2014"]
+yearList=["2008", "2009", "2010", "2011", "2012", "2013", "2014","2015"]
 for county in FIPS.counties:
     countyMSA=""
     countyState=""
     countyrpp=[]
     countyincome=[]
     for rec in MSA_to_FIPS:
-        if rec[1] == county[2]:
-            countyMSA=rec[0]
+        if rec[0] == county[2]:
+            countyMSA=rec[1]
     if countyMSA != "":
         for msa in MSA_RPP_List:
             if countyMSA == msa[0]:
@@ -111,10 +107,11 @@ for county in FIPS.counties:
             if incstate[1] == countyState:
                 countyincome=incstate
                 break
-        for rppstate in Stata_RPP_List:
+        for rppstate in State_RPP_List:
             if rppstate[1] == countyState:
                 countyrpp=rppstate
                 break
+    # print("county: " + str(county) + " | msa: " + str(countyMSA) + " | income: " + str(countyincome))
     for year in yearList:
         try:
             countyrec=CostIncCounty.CostIncCounty(county[2],county[0], county[1],year)
@@ -132,11 +129,13 @@ for county in FIPS.counties:
                 pos = 8
             elif year == "2013":
                 pos = 9
-            else:
+            elif year == "2014":
                 pos = 10
-            print(year+"|"+str(pos)+":"+countyrec.FIPS)
-            print(countyincome)
-            print(countyrpp)
+            else:
+                pos = 11
+            # print(year+"|"+str(pos)+":"+countyrec.FIPS)
+            # print(countyincome)
+            # print(countyrpp)
             countyrec.set_income(countyincome[pos])
             countyrec.set_RPP(countyrpp[pos])
             countyrec.set_Result()
@@ -144,8 +143,8 @@ for county in FIPS.counties:
             recList.append(countyrec)
         except:
             pass
-# print(str(len(recList)))
-# print (recList)
+print(str(len(recList)))
+# print(recList)
 # create writing object
 writer = FedWriter(inMeasure, inLocation)
 

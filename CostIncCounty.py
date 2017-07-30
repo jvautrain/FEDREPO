@@ -48,85 +48,33 @@ def get_msa_rpp(inLocation):
     driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=options)
     driver.get(url)
     linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("ui-id-17").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked header")
+    time.sleep(2)
+    driver.find_element_by_id('ui-id-17').click()
+    print("Clicked header")
 
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("70_1_8_47").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked RPP")
+    time.sleep(2)
+    driver.find_element_by_link_text('Regional Price Parities').click()
+    print("Clicked RPP")
 
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("2").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked Button")
+    time.sleep(2)
+    driver.find_element_by_id("2").click()
 
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto5").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked Next Step")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'All Areas')]").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked option")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto7").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked Next Step")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'All Years')]").click()
-            driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'2014')]").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked option")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto8").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-
+    time.sleep(2)
+    driver.find_element_by_id("goto4").click()
+    print("Clicked Next Step")
+    time.sleep(1)
+    driver.find_element_by_id("2")
+    print("Clicked Button")
+    time.sleep(1)
+    driver.find_element_by_id("goto5").click()
+    time.sleep(2)
+    driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'All Areas')]").click()
+    driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'Abilene, TX')]").click()
+    driver.find_element_by_id("goto7").click()
+    time.sleep(2)
+    driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'All Years')]").click()
+    driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'2015')]").click()
+    driver.find_element_by_id("goto8").click()
     time.sleep(4)
     driver.find_element_by_partial_link_text("CSV").click()
     time.sleep(4)
@@ -147,87 +95,32 @@ def get_state_rpp(inLocation):
     driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=options)
     driver.get(url)
 
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("ui-id-17").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked header")
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("70_1_8_47").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked RPP")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto5").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked Button")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'All Areas')]").click()
-            driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'Alabama')]").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked option")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto7").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked Next Step")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'All Years')]").click()
-            driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'2014')]").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked option")
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto8").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    # print("Clicked Next Step")
+    time.sleep(2)
+    driver.find_element_by_id("ui-id-17").click()
+    time.sleep(2)
+    driver.find_element_by_id("70_1_8_47").click()
+    print("Clicked RPP")
+    time.sleep(3)
+    driver.find_element_by_id("goto4").click()
+    print("Clicked Button")
 
     time.sleep(2)
+    driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'All Areas')]").click()
+    driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'Alabama')]").click()
 
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_link_text("DOWNLOAD").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
+
+    time.sleep(2)
+    driver.find_element_by_id("goto7").click()
+
+    time.sleep(2)
+    driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'All Years')]").click()
+    driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'2015')]").click()
+
+    driver.find_element_by_id("goto8").click()
+    print("Clicked Next Step")
+
+    time.sleep(5)
+    driver.find_element_by_link_text("DOWNLOAD").click()
 
     time.sleep(2)
     driver.switch_to.alert
@@ -251,92 +144,41 @@ def get_msa_income(inLocation):
     driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=options)
     driver.get(url)
 
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("ui-id-17").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
+    time.sleep(2)
+    driver.find_element_by_id("ui-id-17").click()
 
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("70_1_8_46").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("2").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto5").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'All')]").click()
-            driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'United States')]").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto7").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'All Years')]").click()
-            driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'2014')]").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto8").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
+    time.sleep(2)
+    driver.find_element_by_id("70_1_8_46").click()
+    print("Pushed through link")
 
     time.sleep(4)
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_partial_link_text("CSV").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-    print("Get MSA avg income Done")
+    driver.find_element_by_id("2").click()
+    driver.find_element_by_id("goto4").click()
+    print("Set for MSA")
+
     time.sleep(4)
-    driver.close()
+    # driver.find_element_by_id("2").click()
+    # bob=driver.find_elements_by_name('7025')
+    # for x in bob:
+    #     x.click()
+    driver.find_element_by_id("goto5").click()
+    print("Pck both portions")
+
+    time.sleep(6)
+    driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'All')]").click()
+    driver.find_element_by_xpath("//select[@name='7026']//option[contains(.,'United States')]").click()
+    driver.find_element_by_id("goto7").click()
+
+    time.sleep(2)
+    driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'All Years')]").click()
+    driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'2015')]").click()
+    driver.find_element_by_id("goto8").click()
+
+    time.sleep(5)
+    driver.find_element_by_partial_link_text("CSV").click()
+    time.sleep(5)
+    driver.quit()
+
 
 def get_state_income(inLocation):
     url = "https://www.bea.gov/iTable/iTable.cfm?reqid=70#reqid=70&step=1&isuri=1"
@@ -352,35 +194,15 @@ def get_state_income(inLocation):
     # Open Web driver
     driver = webdriver.Chrome(executable_path=chromedriver, chrome_options=options)
     driver.get(url)
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            # print("click")
-            driver.find_element_by_id("ui-id-17").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
+    time.sleep(2)
+    driver.find_element_by_id("ui-id-17").click()
     print("clicked header")
 
-    linkNotThere = True
+    time.sleep(2)
+    driver.find_element_by_id("70_1_8_46").click()
 
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("70_1_8_46").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
-
-    linkNotThere = True
-    while linkNotThere:
-        time.sleep(1)
-        try:
-            driver.find_element_by_id("goto5").click()
-            linkNotThere = False
-        except:
-            linkNotThere = True
+    time.sleep(3)
+    driver.find_element_by_id("goto4").click()
 
     linkNotThere = True
     while linkNotThere:
@@ -406,7 +228,7 @@ def get_state_income(inLocation):
         time.sleep(1)
         try:
             driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'All Years')]").click()
-            driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'2014')]").click()
+            driver.find_element_by_xpath("//select[@name='7027']//option[contains(.,'2015')]").click()
             linkNotThere = False
         except:
             linkNotThere = True
@@ -457,18 +279,13 @@ def read_downloadcsv(inLocation,filterpos,filterval):
                 if counter > 5:
                     if row[filterpos] == filterval:
                         temp = []
-                        temp.append(row[0])
-                        temp.append(row[1])
-                        temp.append(row[2])
-                        temp.append(row[3])
-                        temp.append(row[4])
-                        temp.append(row[5])
-                        temp.append(row[6])
-                        temp.append(row[7])
-                        temp.append(row[8])
-                        temp.append(row[9])
-                        temp.append(row[10])
+                        for x in range(11):
+                            try:
+                                temp.append(row[x])
+                            except:
+                                pass
                         retrunlist.append(temp)
+
             except:
                 pass
     test = True
